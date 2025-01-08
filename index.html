@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <style>
+    <style>
         body, html {
             margin: 0;
             padding: 0;
@@ -18,6 +18,19 @@
     </style>
 </head>
 <body>
-    <iframe src="https://tv.filmkeren21.homes/" ></iframe>
+    <iframe id="contentFrame" src="https://tv.filmkeren21.homes/"></iframe>
+    <script>
+        const iframe = document.getElementById('contentFrame');
+
+        iframe.addEventListener('load', () => {
+            try {
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                // Contoh: Menghapus elemen dengan id atau class tertentu
+                iframeDoc.querySelectorAll('.ads, #ads').forEach(ad => ad.remove());
+            } catch (err) {
+                console.warn("Tidak dapat mengakses konten iframe karena batasan CORS:", err);
+            }
+        });
+    </script>
 </body>
 </html>
