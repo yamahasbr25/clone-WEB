@@ -26,7 +26,7 @@
             try {
                 const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
                 // Contoh: Menghapus elemen dengan id atau class tertentu
-                iframeDoc.querySelectorAll('.ads, #ads, ff-61544f2a337f1c2aacf5327c__form, ff-61544f2a337f1c2aacf5327c__modal-content fd-modal__content').forEach(ad => ad.remove());
+                iframeDoc.querySelectorAll('.ads, #ads, ff-61544f2a337f1c2aacf5327c__wrapper').forEach(ad => ad.remove());
             } catch (err) {
                 console.warn("Tidak dapat mengakses konten iframe karena batasan CORS:", err);
             }
